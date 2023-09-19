@@ -1,6 +1,6 @@
 package day_1;
 
-public class stringMethod {
+public class stringMethod1 {
     public static void main(String[] args) {
         // - 문자열 스스로를 변경하는 메소드는 없음 - *”문자열 고쳐 쓰는 거 아니다”*
         // - 새 문자열 또는 다른 값을 반환
@@ -120,7 +120,7 @@ public class stringMethod {
 
 
 
-        // 문자열 비교
+        // 문자열 비교 (정렬할 때 주로 사용)
         str_a1 = "ABC";
         str_a2 = "ABCDE";
         str_a3 = "ABCDEFG";
@@ -128,18 +128,50 @@ public class stringMethod {
         //  💡 compareTo : 사전순 비교에 따라 양수 또는 음수 반환
 
         //  같은 문자열이면 0 반환
-        int int_a1 = str_a1.compareTo(str_a1);
+        int int_a1 = str_a1.compareTo(str_a1);  // 0
 
         //  시작하는 부분이 같을 때는 글자 길이의 차이 반환
-        int int_a2 = str_a1.compareTo(str_a2);
-        int int_a3 = str_a1.compareTo(str_a3);
-        int int_a4 = str_a2.compareTo(str_a3);
-        int int_a5 = str_a3.compareTo(str_a1);
+        int int_a2 = str_a1.compareTo(str_a2);  // -2
+        int int_a3 = str_a1.compareTo(str_a3);  // -4
+        int int_a4 = str_a2.compareTo(str_a3);  // -2
+        int int_a5 = str_a3.compareTo(str_a1);  // 4
 
         String str_a4 = "HIJKLMN";
 
         //  시작하는 부분이 다를 때는 첫 글자의 정수값 차이 반환
-        int int_a6 = str_a1.compareTo(str_a4);
-        int int_a7 = str_a4.compareTo(str_a3);
+        int int_a6 = str_a1.compareTo(str_a4);  // -7
+        int int_a7 = str_a4.compareTo(str_a3);  // 7
+
+
+        str_b1 = "abc";
+        String str_b2 = "DEF";
+
+        int int_b1 = str_b1.compareTo(str_b2);  // 29
+
+        //  💡 compareToIgnoreCase : 대소문자 구분 없이 비교
+        int int_b2 = str_b1.compareToIgnoreCase(str_b2);  // -3
+
+
+
+        // 대소문자 변환
+        str_a1 = "Hello, World!";
+
+        // 💡 toUpperCase / toLowerCase : 모두 대문자/소문자로 변환
+        str_a2 = str_a1.toUpperCase();  // HELLO WORLD!
+        str_a3 = str_a1.toLowerCase();  // hello world!
+
+        str_b1 = "Hi! How are you? I'm fine. Thank you!";
+        str_b2 = "how";  // 이 문자열이 있는지 비교하고 싶을 때
+
+        bool_b1 = str_b1.contains(str_b2);  // false
+
+        //  ⭐️ 영문 텍스트에서 대소문자 무관 특정 텍스트 포함 여부 확인시
+        bool_b2 = str_b1        // true
+                .toUpperCase()
+                .contains(str_b2.toUpperCase());
+
+        bool_b3 = str_b1        // true
+                .toLowerCase()
+                .contains(str_b2.toLowerCase());
     }
 }
