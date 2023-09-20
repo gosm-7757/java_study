@@ -1,4 +1,4 @@
-package day_1;
+package chapter_1;
 
 public class dataType {
     public static void main(String[] args) {

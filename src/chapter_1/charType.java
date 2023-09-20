@@ -1,4 +1,4 @@
-package day_1;
+package chapter_1;
 
 public class charType {
     public static void main(String[] args) {

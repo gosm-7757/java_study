@@ -1,4 +1,4 @@
-package day_1;
+package chapter_1;
 
 public class stringMethod1 {
     public static void main(String[] args) {
