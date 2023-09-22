@@ -1,3 +1,5 @@
+package chapter_2;
+
 public class for_forEach {
     public static void main(String[] args) {
         for(int i = 0; i < 5; ){

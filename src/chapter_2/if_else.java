@@ -1,3 +1,5 @@
+package chapter_2;
+
 public class if_else {
     public static void main(String[] args) {
         boolean open = true;
