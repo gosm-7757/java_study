@@ -161,5 +161,144 @@ public class array {
         String join2 = String.join("-", strings);
         String join3 = String.join(" 그리고 ", strings);
         String join4 = String.join("", strings);
+
+
+        // 무한 루프
+        //  종료조건이 없는 for 루프
+        /* for (;;) {
+            System.out.println("영원히");
+        } */
+        // System.out.println("닿지 않아"); // ⚠️ 실행되지 않음
+
+
+        //  종료조건을 만족시키지 못하는 무한루프
+        /* for (int i = 0; i < 10; i++) {
+            System.out.println("그래도");
+            i--; // 이거 때문에 무한 반복
+        }
+        //! 이런 경우에는 밑에 빨간 줄이 그이지는 않는다. (컴파일 에러로 못 잡아냄)
+        System.out.println("닿지 않아"); // ⚠️ 실행되지 않음 */
+
+
+
+        //  4의 배수 차례로 10개 배열에 담기
+        int count = 10;
+        int[] multiOf4 = new int[count];
+
+        for (int i = 1, c = 0; c < count; i++) {
+            if (i % 4 == 0) {
+                multiOf4[c++] = i;
+            }
+        }
+        //  💡 배열 순환 (기본적인 방법) 꺼내기
+        for (int i = 0; i < multiOf4.length; i++) {
+            System.out.println(multiOf4[i]);
+        }
+
+
+        System.out.println("\n- - - - -\n");
+
+        //  💡 for each 문법 - 배열이나 이후 배울 콜랙션 등에 사용
+        for (int num : multiOf4) { // num 안에 multiOf4의 요소 하나씩 대입
+            System.out.println(num);
+        }
+
+        System.out.println("\n- - - - -\n");
+
+        int sumOfArray = 0;
+        for (int num : multiOf4) {
+            sumOfArray += num;
+        }
+
+        System.out.println("\n- - - - -\n");
+
+        for (String s : "호롤롤로".split("")) {
+            System.out.println(s);
+        }
+
+
+
+        //  구구단
+        // for 문 안에서 선언한 변수는 그 안에서만 사용할 수 있다.
+        for (int i = 1; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                System.out.printf("%d X %d = %2d%n", i, j, i * j);
+            }
+        }
+
+        String[][] quotesInLangs = {
+                {
+                    "I am vengeance.",
+                    "I am night.",
+                    "I am Batman.",
+                },
+                {
+                    "나는 복수를 하지.",
+                    "나는 밤이지.",
+                    "나는 배트맨이지.",
+                },
+        };
+
+        String result = "";
+        for (String[] quotes : quotesInLangs) {  // 첫번째 인덱스 요소는 배열이니까 [] 추가
+            for (String quote : quotes) {
+                result += quote + " "; 
+            }
+            result = result.trim().concat("\n");
+        }
+
+        System.out.println(result);
+
+
+
+
+        for (int i = 0; i < 100; i++) {
+
+            //  💡 continue : 한 루프만 건너뜀
+            if (i % 3 == 0) continue;  // 한턴만 아래 코드 실행 안함
+
+            //  💡 break : 블록 전체를 종료
+            if (i == 10) break;  // 그냥 반복문을 나감
+
+            System.out.println(i);
+        }
+
+
+
+        System.out.println("\n- - - - -\n");
+
+        String str = "호";
+
+				//  ⭐️ 무한루프 탈출에 사용 가능
+        for (;;) { // 다음 강의 while을 더 많이 사용
+            str += "롤";
+            System.out.println(str);
+            if (str.length() == 100) break;
+        }
+
+        str += "로";
+        System.out.println(str);
+
+
+
+
+        System.out.println("\n- - - - -\n");
+
+        //  💡 label : 중첩 루프에서 어느쪽을 continue, break 할 지 구분
+        // 라벨은 내 마음대로 지정할 수 있다. 
+        outer:
+        for (int i = 0; i < 10; i++) {
+
+            inner:
+            for (int j = 0; j < 10; j++) {
+                if (j % 2 == 0) continue inner;
+                if (i * j >= 30) continue outer;
+
+                if (j > 8) break inner;
+                if (i - j > 7) break outer;
+
+                System.out.printf("i: %d, j: %d%n", i, j);
+            }
+        }
     }
 }
